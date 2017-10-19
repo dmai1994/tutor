@@ -1,4 +1,5 @@
-<?php include 'connect.php';
+<?php
+include 'connect.php';
 include 'login.php';
 include 'header.php';
 ?>
@@ -39,13 +40,6 @@ while($row = mysqli_fetch_assoc($result)){
          }
     echo '<input type="submit" value="Ban Account" />
   </form>';
-  if(isset($_POST['ban'])) {
-    $banned = $_POST['ban'];
-    $sqlBan = "UPDATE Users SET status='banned' WHERE userID='$banned'";
-    mysqli_query($connection, $sqlBan);
-    header('Refresh: .1; URL = ban.php');
-  }
-
 ?>
 
 </tbody>
@@ -85,16 +79,10 @@ while($row = mysqli_fetch_assoc($result)){
            }
            echo '<input type="submit" value="Unban Account" />
          </form>';
-         if(isset($_POST['unban'])) {
-           $unbanned = $_POST['unban'];
-           $sqlBan = "UPDATE Users SET status='user' WHERE userID='$unbanned'";
-           mysqli_query($connection, $sqlBan);
-           header('Refresh: .1; URL = ban.php');
-         }
-
   ?>
 
   </tbody>
   </table>
 </div>
 </div>
+
